@@ -4,9 +4,13 @@ from langchain_community.chat_models import ChatOpenAI
 from langserve import add_routes
 import uvicorn
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
-print(openai_api_key)
+
 # Check if the API key is set
 if openai_api_key is None:
     raise ValueError("OpenAI API key is not set")
